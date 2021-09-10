@@ -9,7 +9,7 @@ from Attributes import path_to_register, path_to_csv_dir, get_students, date_lin
 
 # Connecting to attendance register:
 
-if exists(path_to_register):
+if exists(path_to_register) and input(f'It seems that \'{path_to_register}\' already exists, do you really want to continue appending attendance in it only? (enter 1 to continue in the same register or 2 to continue in a new register): ').strip() == '1':
 
     from Attributes import heading_row, start_column
 
@@ -26,6 +26,14 @@ if exists(path_to_register):
         start_column = sheet.max_column + 1
 
 else:  # creating
+
+    i = 1
+    copy = path_to_register
+    while exists(path_to_register):
+        path_to_register = f'{copy[:-5]} ({i}).xlsx'
+        i += 1
+    del i, copy
+    print('Path to register:', path_to_register)
 
     wb = Workbook()
     wb.save(path_to_register)

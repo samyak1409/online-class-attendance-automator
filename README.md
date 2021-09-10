@@ -33,15 +33,20 @@ you guessed it right, this project will do that work for you in seconds!
 <img src="Screenshots/2.png">
 
 
-#### 3) *This step is only for developers and not teachers, in this step we'll be generating sample attendance data as we don't have the real attendance data.*
+#### 3) If you have attendance data (CSV files) ready, first empty the [Attendance CSVs](Attendance%20CSVs) folder and just copy them all to the same and proceed with step 4.
+
+**Else**, we'll be generating sample attendance data! -> 
+
+*This step is only for developers and not teachers, in this step we'll be generating sample attendance data as we don't 
+have the real attendance data.*
 
 Run [Sample Data Generator.py](Sample%20Data%20Generator.py) and enter the number of days of attendance you want to 
 generate.
 
 <img src="Screenshots/3.png">
 
-It will generate any number of days of attendance in a few seconds and will save them to [Sample Data](Sample%20Data) 
-folder ready to be processed by the [main](Main.py) program.
+It will generate any number of days of attendance in a few seconds and will save them to 
+[Attendance CSVs](Attendance%20CSVs) folder ready to be processed by the [main](Main.py) program.
 
 
 #### 4) Run [Main.py](Main.py), wait for a few seconds, and BOOM! complete [Attendance Register.xlsx](Attendance%20Register.xlsx) will be ready! 

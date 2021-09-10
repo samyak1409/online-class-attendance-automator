@@ -5,25 +5,27 @@
 
 teacher = 'Ravi Jain'  # (since teacher will always be present in the meeting)
 
+path_to_csv_dir = 'Attendance CSVs'  # path to the dir containing Google Chrome Extension generated CSV files of attendance
+
 min_percent = 70  # minimum percentage criteria
 
 
 # Only if you're generating sample data:
 
-path_to_csv_dir = 'Sample Data'  # this dir must have at least one CSV, if more than one, first will be chose
-
 last_line_in_heading = 'Full Name'  # don't include double quotes ('"Full Name"' ❌ ; 'Full Name' ✔)
 
 date_line_sub_str = 'Created on'  # some string which uniquely identifies date cell
 
+path_to_sample_csv_dir = 'Sample CSV'  # path to the dir containing Sample CSV file (whose format will be followed to generate sample attendance data); must at least have one CSV in it
+
 
 # Optional:
 
-path_to_register = 'Attendance Register.xlsx'
+path_to_register = 'Attendance Register.xlsx'  # path to the Attendance Register
 
-heading_row = 3  # row no. having headings like roll number, name, date
+heading_row = 3  # row no. having headings like Roll Number, Name, Date
 
-names_heading = last_line_in_heading  # heading for the names in the attendance register
+names_heading = last_line_in_heading  # heading for the names in the Attendance Register
 
 start_column = None  # column no. from where the attendance insertion should start, None for default
 

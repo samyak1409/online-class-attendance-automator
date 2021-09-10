@@ -4,18 +4,17 @@ from datetime import timedelta
 from random import sample, randint
 from os import chdir
 from glob import iglob
-from Attributes import path_to_csv_dir, last_line_in_heading, date_line_sub_str, teacher, get_students, get_date
+from Attributes import path_to_csv_dir, last_line_in_heading, date_line_sub_str, teacher, get_students, get_date, path_to_sample_csv_dir
 
 
 names = list(get_students())
 strength = len(names)
 
-chdir(path_to_csv_dir)
-
+chdir(path_to_sample_csv_dir)
 try:
     src_csv = next(iglob('*.csv'))  # CSV whose format will be followed
 except StopIteration:
-    exit(f'In order to generate some sample attendance data, \'{path_to_csv_dir}\' dir must have at least one CSV file to follow the format of. \nExiting.')
+    exit(f'In order to generate some sample attendance data, \'{path_to_sample_csv_dir}\' dir must have at least one CSV file to follow the format of. \nExiting.')
 print('\nSource CSV:', src_csv)
 
 # Reading Headings:
@@ -47,6 +46,7 @@ for i in range(1, int(input('\nHow many CSVs? > '))+1):
     new_date += timedelta(days=1)
     # print(new_date)  #debugging
 
+    chdir(f'..\\{path_to_csv_dir}')
     dst_csv = f'{new_date}{remaining_str}'
 
     with open(dst_csv, mode='w', newline='') as file:

@@ -1,2 +1,9 @@
+# Ignoring all the CSVs: (https://stackoverflow.com/questions/4250063)
+Attendance CSVs/*.csv
+
+# Others:
 rough.py
 GroupsDivider.py
+
+# .pyc:
+__pycache__

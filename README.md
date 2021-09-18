@@ -97,8 +97,8 @@ attendance. (Parents data (mail IDs) will be needed.)
 
 5) More coming...
 
+## 
 
-#### Written in Python ❤
+### Written in Python ❤
 
-
-#### Contact me [@mail](mailto:samyak65400@gmail.com)
+### Contact me [@mail](mailto:samyak65400@gmail.com)

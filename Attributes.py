@@ -7,14 +7,16 @@ teacher = 'Ravi Jain'  # (since teacher will always be present in the meeting)
 
 path_to_csv_dir = 'Attendance CSVs'  # path to the dir containing Google Chrome Extension generated CSV files of attendance
 
-min_percent = 70  # minimum percentage criteria
+min_percent = 75  # minimum percentage criteria
 
+# Check the pattern in Attendance CSVs:
 
-# Only if you're generating sample data:
+date_line_sub_str = 'Created on'  # some string which uniquely identifies date cell
 
 last_line_in_heading = 'Full Name'  # don't include double quotes ('"Full Name"' ❌ ; 'Full Name' ✔)
 
-date_line_sub_str = 'Created on'  # some string which uniquely identifies date cell
+
+# Only if you're generating sample data:
 
 path_to_sample_csv_dir = 'Sample CSV'  # path to the dir containing Sample CSV file (whose format will be followed to generate sample attendance data); must at least have one CSV in it
 
@@ -56,6 +58,8 @@ if __name__ == '__main__':
 
     print()  # spacing
 
-    from os import listdir
-    csv = listdir('Sample Data')[0]
-    print(csv, '->', get_date(filename=csv))
+    from glob import iglob
+    from os import chdir
+    chdir(path_to_csv_dir)
+    for csv in iglob('*.csv'):
+        print(csv, '->', get_date(filename=csv))

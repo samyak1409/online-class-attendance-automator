@@ -4,7 +4,7 @@ from datetime import timedelta
 from random import sample, randint
 from os import chdir
 from glob import iglob
-from Attributes import path_to_csv_dir, last_line_in_heading, date_line_sub_str, teacher, get_students, get_date, path_to_sample_csv_dir
+from Attributes import path_to_csv_dir, date_line_sub_str, last_line_in_heading, teacher, get_students, get_date, path_to_sample_csv_dir
 
 
 names = list(get_students())

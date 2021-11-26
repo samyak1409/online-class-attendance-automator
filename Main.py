@@ -77,24 +77,40 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
 
         data = reader(file)
 
-        # Extracting Date:
         date = get_date(filename=csv_file)
+        # Verifying Date:
         while True:
-            cell = next(data)[0]  # taking only one cell from every row
+            try:
+                cell = next(data)[0]  # taking only one cell from every row
+            except IndexError:  # (empty row)
+                continue
+            except StopIteration:  # reached the end of the csv
+                print('''"date_line_sub_str" didn't match... \n
+                Please correct it in "Attributes.py" and run the program again. \n
+                EXITING WITHOUT SAVING''')
+                exit()
             # print(cell)  #debugging
 
             if date_line_sub_str in cell:
                 if str(date) not in cell:
-                    print("Something went wrong, date in the CSV filename and inside CSV didn't match... \n"
-                          "EXITING WITHOUT SAVING \n"
-                          "Please make sure it's same (else wrong attendance will be marked) and run the program again.")
+                    print(f'''Something went wrong, date in CSV filename ("{date}") and inside CSV didn't match... \n
+                    Please make sure it's same (else wrong attendance will be marked) and run the program again. \n
+                    EXITING WITHOUT SAVING''')
                     exit()
-                # print(date)  #debugging
                 break
 
         # Skipping to names starting:
-        while next(data)[0] != last_line_in_heading:
-            pass
+        while True:
+            try:
+                if next(data)[0] == last_line_in_heading:
+                    break
+            except IndexError:  # (empty row)
+                continue
+            except StopIteration:  # reached the end of the csv
+                print('''"last_line_in_heading" didn't match... \n
+                Please correct it in "Attributes.py" and run the program again. \n
+                EXITING WITHOUT SAVING''')
+                exit()
 
         # MARKING ATTENDANCE:
 
@@ -132,7 +148,7 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
 
 # Attendance total:
 
-sheet.cell(row=heading_row, column=day, value='total')
+sheet.cell(row=heading_row, column=day, value='Total')
 
 low_attendance = best_attendance = []
 best = 0

@@ -9,11 +9,11 @@ path_to_csv_dir = 'Attendance CSVs'  # path to the dir containing Google Chrome 
 
 min_percent = 75  # minimum percentage criteria
 
-# Check the pattern in Attendance CSVs:
+# Check the pattern and find some string which uniquely identify those particular lines in Attendance CSVs:
 
-date_line_sub_str = 'Created on'  # some string which uniquely identifies date cell
+date_line_sub_str = 'Created on'
 
-last_line_in_heading = 'Full Name'  # don't include double quotes ('"Full Name"' ❌ ; 'Full Name' ✔)
+last_line_sub_str = 'Full Name'  # don't include double quotes ('"Whatever Sub-Text"' ❌ ; 'Whatever Sub-Text' ✔)
 
 
 # Only if you're generating sample data:
@@ -27,26 +27,48 @@ path_to_register = 'Attendance Register.xlsx'  # path to the Attendance Register
 
 heading_row = 3  # row no. having headings like Roll Number, Name, Date
 
-names_heading = last_line_in_heading  # heading for the names in the Attendance Register
+names_heading = "Full Name"  # heading for the names in the Attendance Register
 
 start_column = None  # column no. from where the attendance insertion should start, None for default
+
+include_year = False  # include year (-yyyy) in the dates in Attendance Register or not
 
 
 ########################################################################################################################
 
 
+# Attributes:
+
+studs = 'Students.data'
+attrs = 'Attributes.py'
+most_wanted = 'Most Wanted.txt'
+
+
 # Functions:
 
 def get_students():
-    """Yields a name from 'Students.data'."""
-    for name in filter(lambda x: x, map(lambda x: x.strip(), sorted(open('Students.data').read().split('\n')))):
-        yield name
+    """Returns names from :var:`studs`."""
+    # print(open(studs).read().split('\n'))  #debugging
+    names = list(filter(lambda x: x, sorted(map(lambda x: x.strip().title(), open(studs).read().split('\n')))))  # doesn't matter what's outside, the data will be well formatted after coming inside the program! (titlecased etc.)
+    # print(names)  #debugging
+    if len(names) != len(set(names)):  # duplicate names check
+        from collections import Counter
+        histogram = Counter(names)
+        raise ValueError(f'"{studs}" contains duplicate names {list(filter(lambda x: histogram[x] > 1, histogram))}, please fix it and run the program again.')
+    return names
 
 
 def get_date(filename: str):
     """Returns :class:`datetime.date` (YYYY-MM-DD) from the CSV file name."""
     from datetime import date
-    return date.fromisoformat(filename[:10])
+    len_of_date = 10  # e.g. len('2021-11-22')
+    for i in range(len(filename)-len_of_date+1):  # traversing through the filename (date can be anywhere in b/w)
+        try:
+            return date.fromisoformat(filename[i:i+len_of_date])
+        except ValueError:
+            continue
+    else:
+        raise ValueError(f'DATE NOT FOUND IN THE FILENAME "{filename}"')
 
 
 # Debugging:

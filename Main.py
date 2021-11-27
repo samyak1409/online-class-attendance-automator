@@ -4,12 +4,12 @@ from csv import reader
 from os.path import exists
 from glob import glob
 from os import chdir, getcwd
-from Attributes import path_to_register, path_to_csv_dir, get_students, date_line_sub_str, get_date, last_line_in_heading, teacher, min_percent, names_heading
+from Attributes import path_to_register, path_to_csv_dir, get_students, date_line_sub_str, get_date, last_line_sub_str, teacher, min_percent, names_heading, include_year, attrs, most_wanted
 
 
 # Connecting to attendance register:
 
-if exists(path_to_register) and input(f'It seems that \'{path_to_register}\' already exists, do you really want to continue appending attendance in it only? (enter 1 to continue in the same register or 2 to continue in a new register): ').strip() == '1':
+if exists(path_to_register) and input(f'\'{path_to_register}\' already exists, continue appending attendance in it only? (enter 1 to continue in the same register or 2 to continue in a new register): ').strip() == '1':
 
     from Attributes import heading_row, start_column
 
@@ -85,8 +85,8 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
             except IndexError:  # (empty row)
                 continue
             except StopIteration:  # reached the end of the csv
-                print('''"date_line_sub_str" didn't match... \n
-                Please correct it in "Attributes.py" and run the program again. \n
+                print(f'''"date_line_sub_str" didn't match... \n
+                Please correct it in "{attrs}" and run the program again. \n
                 EXITING WITHOUT SAVING''')
                 exit()
             # print(cell)  #debugging
@@ -102,24 +102,31 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
         # Skipping to names starting:
         while True:
             try:
-                if next(data)[0] == last_line_in_heading:
+                if last_line_sub_str in next(data)[0]:
                     break
             except IndexError:  # (empty row)
                 continue
             except StopIteration:  # reached the end of the csv
-                print('''"last_line_in_heading" didn't match... \n
-                Please correct it in "Attributes.py" and run the program again. \n
+                print(f'''"last_line_sub_str" didn't match... \n
+                Please correct it in "{attrs}" and run the program again. \n
                 EXITING WITHOUT SAVING''')
                 exit()
 
         # MARKING ATTENDANCE:
 
-        sheet.cell(row=heading_row, column=day, value=date.strftime(format='%d-%m'))  # date heading
+        sheet.cell(row=heading_row, column=day, value=date.strftime(format='%d-%m-%Y' if include_year else '%d-%m'))  # date heading
 
         roll_no = heading_row + 1
 
-        for attendee in data:
-            attendee = attendee[0].strip()
+        # print(list(data)); exit()  #debugging
+        attendees = list(filter(lambda x: x, sorted(map(lambda x: x[0].strip().title() if x != [] else '', data))))  # doesn't matter what's outside, the data will be formatted well after coming inside the program! (titlecased etc.)
+        # print(attendees)  #debugging
+        if len(attendees) != len(set(attendees)):  # duplicate names check
+            from collections import Counter
+            histogram = Counter(attendees)
+            raise ValueError(f'"{csv_file}" contains duplicate names {list(filter(lambda x: histogram[x] > 1, histogram))}, please fix it and run the program again.')
+
+        for attendee in attendees:
 
             if attendee == teacher:  # do nothing
                 continue
@@ -150,8 +157,8 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
 
 sheet.cell(row=heading_row, column=day, value='Total')
 
-low_attendance = best_attendance = []
-best = 0
+low_attendees = best_attendees = []
+best = best_percent = 0
 
 for rn in range(heading_row+1, roll_no):
 
@@ -171,23 +178,31 @@ for rn in range(heading_row+1, roll_no):
 
     attendance_percent = count / (day-(reg_names_col+1)-totals) * 100
     if attendance_percent < min_percent:
-        low_attendance.append({'RN': rn-heading_row, 'Name': get_reg_name(rn), 'Attendance %': float('{:.2f}'.format(attendance_percent))})
+        low_attendees.append({'RN': rn-heading_row, 'Name': get_reg_name(rn), 'Attendance %': float('{:.2f}'.format(attendance_percent))})
 
     if count > best:
         best = count
-        best_attendance = [attendance_percent, rn]
+        best_percent = attendance_percent
+        best_attendees = [rn]
     elif count == best:
-        best_attendance.append(rn)
+        best_attendees.append(rn)
 
-if low_attendance:
-    print(f'\nStudents with low attendance (< {min_percent}%): ')
-    [print(i) for i in low_attendance]
+chdir(cwd)  # changing back so that files save in the right place
 
-if best_attendance:
-    print(f'\nStudent{"" if len(best_attendance)==2 else "s"} with best attendance ({float("{:.2f}".format(best_attendance[0]))}%): ')
-    [print({'RN': rn-heading_row, 'Name': get_reg_name(rn)}) for rn in best_attendance[1:]]  # stupid warning -_-
+with open(file=most_wanted, mode='a') as file:
 
-chdir(cwd)  # changing back so that attendance register file saves in the right place
+    file.write(f'For "{path_to_register}" till date "{date}":\n')
+
+    if len(low_attendees) > 0:
+        file.write(f'\nStudent{"" if len(low_attendees)==1 else "s"} with low attendance (< {min_percent}%): \n')
+        file.writelines(map(lambda x: str(x)+'\n', low_attendees))
+
+    if len(best_attendees) > 0:
+        file.write(f'\nStudent{"" if len(best_attendees)==1 else "s"} with best attendance ({float("{:.2f}".format(best_percent))}%): \n')
+        file.writelines(map(lambda rn_: str({'RN': rn_-heading_row, 'Name': get_reg_name(rn_)})+'\n', best_attendees))
+
+    file.write('\n' + '#'*78 + '\n\n')
+
 try:
     wb.save(path_to_register)
 except PermissionError as e:

@@ -4,7 +4,7 @@ from datetime import timedelta
 from random import sample, randint
 from os import chdir
 from glob import iglob
-from Attributes import path_to_csv_dir, date_line_sub_str, last_line_in_heading, teacher, get_students, get_date, path_to_sample_csv_dir
+from Attributes import path_to_csv_dir, date_line_sub_str, last_line_sub_str, teacher, get_students, get_date, path_to_sample_csv_dir
 
 
 names = list(get_students())
@@ -15,7 +15,7 @@ try:
     src_csv = next(iglob('*.csv'))  # CSV whose format will be followed
 except StopIteration:
     exit(f'In order to generate some sample attendance data, \'{path_to_sample_csv_dir}\' dir must have at least one CSV file to follow the format of. \nExiting.')
-print('\nSource CSV:', src_csv)
+print('\nSource CSV:', src_csv)  # buggy warning.
 
 # Reading Headings:
 with open(src_csv, newline='', encoding='utf-8-sig') as file:
@@ -32,7 +32,7 @@ with open(src_csv, newline='', encoding='utf-8-sig') as file:
 
         headings.append([cell])  # add
 
-        if cell == last_line_in_heading:
+        if last_line_sub_str in cell:
             break
 
 

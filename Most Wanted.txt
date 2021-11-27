@@ -1,0 +1,117 @@
+For "Attendance Register (1).xlsx" till date "2021-11-22":
+
+Students with low attendance (< 75%): 
+{'RN': 1, 'Name': 'Aakansha Sahu', 'Attendance %': 72.0}
+{'RN': 3, 'Name': 'Aditi', 'Attendance %': 67.0}
+{'RN': 4, 'Name': 'Aditi Sharma', 'Attendance %': 67.0}
+{'RN': 5, 'Name': 'Akanksha Bharti', 'Attendance %': 70.0}
+{'RN': 6, 'Name': 'Akansha', 'Attendance %': 73.0}
+{'RN': 8, 'Name': 'Ambika Agarwal', 'Attendance %': 74.0}
+{'RN': 9, 'Name': 'Anjali Kumari', 'Attendance %': 69.0}
+{'RN': 10, 'Name': 'Ankita Sen', 'Attendance %': 56.0}
+{'RN': 11, 'Name': 'Anshika Agarwal', 'Attendance %': 68.0}
+{'RN': 12, 'Name': 'Anshita Gupta', 'Attendance %': 72.0}
+{'RN': 13, 'Name': 'Anushka Pandit', 'Attendance %': 70.0}
+{'RN': 15, 'Name': 'Anushri Saraswat', 'Attendance %': 69.0}
+{'RN': 16, 'Name': 'Apurva Agarwal', 'Attendance %': 71.0}
+{'RN': 18, 'Name': 'Aruna Kumari Singh', 'Attendance %': 70.0}
+{'RN': 21, 'Name': 'Avni Mittal', 'Attendance %': 71.0}
+{'RN': 22, 'Name': 'Bhoomi Agrawal', 'Attendance %': 67.0}
+{'RN': 23, 'Name': 'Chakshu', 'Attendance %': 71.0}
+{'RN': 26, 'Name': 'Divya Jain', 'Attendance %': 72.0}
+{'RN': 27, 'Name': 'Divya Tela', 'Attendance %': 71.0}
+{'RN': 29, 'Name': 'Garima Sachan', 'Attendance %': 74.0}
+{'RN': 30, 'Name': 'Harshita Garg', 'Attendance %': 71.0}
+{'RN': 31, 'Name': 'Hunny', 'Attendance %': 68.0}
+{'RN': 32, 'Name': 'Ishika Rastogi', 'Attendance %': 74.0}
+{'RN': 33, 'Name': 'Ishika Singhal', 'Attendance %': 68.0}
+{'RN': 34, 'Name': 'Ishita Kumari', 'Attendance %': 66.0}
+{'RN': 37, 'Name': 'Jyoti Swarupa', 'Attendance %': 74.0}
+{'RN': 39, 'Name': 'Kashish Chauhan', 'Attendance %': 73.0}
+{'RN': 41, 'Name': 'Khushi Goel', 'Attendance %': 70.0}
+{'RN': 42, 'Name': 'Khushi Jindal', 'Attendance %': 70.0}
+{'RN': 43, 'Name': 'Khushi Kumari', 'Attendance %': 71.0}
+{'RN': 44, 'Name': 'Khushi Mittal', 'Attendance %': 70.0}
+{'RN': 45, 'Name': 'Khushi Singhal', 'Attendance %': 71.0}
+{'RN': 46, 'Name': 'Khushi Yadav', 'Attendance %': 73.0}
+{'RN': 47, 'Name': 'Kirti Devlani', 'Attendance %': 73.0}
+{'RN': 48, 'Name': 'Kirti Porwal', 'Attendance %': 71.0}
+{'RN': 50, 'Name': 'Komal Agrawal', 'Attendance %': 69.0}
+{'RN': 51, 'Name': 'Kriti Kumari', 'Attendance %': 65.0}
+{'RN': 52, 'Name': 'Kritika Punetha', 'Attendance %': 72.0}
+{'RN': 55, 'Name': 'Mahak Agrawal', 'Attendance %': 68.0}
+{'RN': 56, 'Name': 'Mahak Chaubey', 'Attendance %': 67.0}
+{'RN': 58, 'Name': 'Maitreyee Shakya', 'Attendance %': 72.0}
+{'RN': 60, 'Name': 'Mansi Mrinal', 'Attendance %': 68.0}
+{'RN': 63, 'Name': 'Muskan', 'Attendance %': 68.0}
+{'RN': 64, 'Name': 'Naina', 'Attendance %': 72.0}
+{'RN': 66, 'Name': 'Nawya Kumari', 'Attendance %': 72.0}
+{'RN': 67, 'Name': 'Niyati Sundarka', 'Attendance %': 67.0}
+{'RN': 68, 'Name': 'Palak Kukreja', 'Attendance %': 69.0}
+{'RN': 70, 'Name': 'Pallavi Shishodia', 'Attendance %': 70.0}
+{'RN': 71, 'Name': 'Pooja Yadav', 'Attendance %': 71.0}
+{'RN': 72, 'Name': 'Poorvi Agarwal', 'Attendance %': 73.0}
+{'RN': 73, 'Name': 'Prabhleen Kaur', 'Attendance %': 68.0}
+{'RN': 75, 'Name': 'Prachi Jalan', 'Attendance %': 70.0}
+{'RN': 76, 'Name': 'Pragati Gupta', 'Attendance %': 71.0}
+{'RN': 78, 'Name': 'Pranjal Bothra', 'Attendance %': 74.0}
+{'RN': 79, 'Name': 'Radhika Garg', 'Attendance %': 70.0}
+{'RN': 80, 'Name': 'Raj Nandani', 'Attendance %': 73.0}
+{'RN': 81, 'Name': 'Richa Anita Sharma', 'Attendance %': 74.0}
+{'RN': 82, 'Name': 'Richa Sharma', 'Attendance %': 70.0}
+{'RN': 83, 'Name': 'Rishika Tewani', 'Attendance %': 71.0}
+{'RN': 85, 'Name': 'Ritika Garg', 'Attendance %': 68.0}
+{'RN': 86, 'Name': 'Riya Bhagat', 'Attendance %': 72.0}
+{'RN': 87, 'Name': 'Riya Senani', 'Attendance %': 68.0}
+{'RN': 89, 'Name': 'Rudrani', 'Attendance %': 73.0}
+{'RN': 91, 'Name': 'Sainky Bhamla', 'Attendance %': 74.0}
+{'RN': 92, 'Name': 'Sakhya Gupta', 'Attendance %': 72.0}
+{'RN': 93, 'Name': 'Sakshi Kumari', 'Attendance %': 72.0}
+{'RN': 94, 'Name': 'Sanskarika Anant', 'Attendance %': 72.0}
+{'RN': 95, 'Name': 'Sanskriti Bhardwaj', 'Attendance %': 68.0}
+{'RN': 97, 'Name': 'Sanskriti Pandey', 'Attendance %': 65.0}
+{'RN': 99, 'Name': 'Shambhavi Soumya', 'Attendance %': 67.0}
+{'RN': 100, 'Name': 'Shandili Kumari Ambey', 'Attendance %': 72.0}
+{'RN': 101, 'Name': 'Shanu Jain', 'Attendance %': 68.0}
+{'RN': 102, 'Name': 'Sheetal', 'Attendance %': 62.0}
+{'RN': 103, 'Name': 'Shejal Tiwari', 'Attendance %': 74.0}
+{'RN': 104, 'Name': 'Shikha Agarwal', 'Attendance %': 62.0}
+{'RN': 105, 'Name': 'Shikha Suman', 'Attendance %': 64.0}
+{'RN': 107, 'Name': 'Shivani Yadav', 'Attendance %': 74.0}
+{'RN': 108, 'Name': 'Shivanshi Narain', 'Attendance %': 74.0}
+{'RN': 109, 'Name': 'Shristi Gupta', 'Attendance %': 66.0}
+{'RN': 110, 'Name': 'Shruti Agarwal', 'Attendance %': 62.0}
+{'RN': 112, 'Name': 'Shubham Vada', 'Attendance %': 69.0}
+{'RN': 113, 'Name': 'Shubhangi Rana', 'Attendance %': 73.0}
+{'RN': 114, 'Name': 'Shweta Parth', 'Attendance %': 69.0}
+{'RN': 115, 'Name': 'Siddhi Shukla', 'Attendance %': 68.0}
+{'RN': 117, 'Name': 'Simran Kumari', 'Attendance %': 71.0}
+{'RN': 118, 'Name': 'Sindhuja Agarwal', 'Attendance %': 73.0}
+{'RN': 119, 'Name': 'Smriti', 'Attendance %': 69.0}
+{'RN': 120, 'Name': 'Sneha Vaish', 'Attendance %': 70.0}
+{'RN': 121, 'Name': 'Somya Singh', 'Attendance %': 64.0}
+{'RN': 122, 'Name': 'Sonal Kashyap', 'Attendance %': 70.0}
+{'RN': 124, 'Name': 'Suhani', 'Attendance %': 72.0}
+{'RN': 126, 'Name': 'Surbhi Gupta', 'Attendance %': 74.0}
+{'RN': 127, 'Name': 'Swarnima Kumari', 'Attendance %': 64.0}
+{'RN': 129, 'Name': 'Taniya Tyagi', 'Attendance %': 74.0}
+{'RN': 130, 'Name': 'Tannu Kumari', 'Attendance %': 72.0}
+{'RN': 131, 'Name': 'Tannu Ray', 'Attendance %': 68.0}
+{'RN': 132, 'Name': 'Tanya Singh', 'Attendance %': 71.0}
+{'RN': 134, 'Name': 'Udisha Mudgal', 'Attendance %': 72.0}
+{'RN': 136, 'Name': 'Unnati Srivastava', 'Attendance %': 71.0}
+{'RN': 137, 'Name': 'Urvashi Mehrotra', 'Attendance %': 71.0}
+{'RN': 139, 'Name': 'Vani Changia', 'Attendance %': 72.0}
+{'RN': 140, 'Name': 'Vani Gautam', 'Attendance %': 70.0}
+{'RN': 142, 'Name': 'Vanshikha Singhal', 'Attendance %': 70.0}
+{'RN': 144, 'Name': 'Vasudha Verma', 'Attendance %': 68.0}
+{'RN': 145, 'Name': 'Vasundhara', 'Attendance %': 70.0}
+{'RN': 146, 'Name': 'Vishonika', 'Attendance %': 69.0}
+{'RN': 149, 'Name': 'Yukti Gupta', 'Attendance %': 67.0}
+{'RN': 150, 'Name': 'Yukti Mishra', 'Attendance %': 74.0}
+
+Student with best attendance (83.0%): 
+{'RN': 54, 'Name': 'Leeza Kumari'}
+
+##############################################################################
+

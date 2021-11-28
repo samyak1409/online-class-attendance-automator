@@ -7,7 +7,7 @@ teacher = 'Ravi Jain'  # (since teacher will always be present in the meeting)
 
 path_to_csv_dir = 'Attendance CSVs'  # path to the dir containing Google Chrome Extension generated CSV files of attendance
 
-min_percent = 75  # minimum percentage criteria
+min_percent = 70  # minimum percentage criteria
 
 # Check the pattern and find some string which uniquely identify those particular lines in Attendance CSVs:
 

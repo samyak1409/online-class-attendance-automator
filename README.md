@@ -47,12 +47,15 @@ It will generate any number of days of attendance in a few seconds and will save
 
 #### 4) Run [Main.py](Main.py), wait for a few seconds, and BOOM! complete [Attendance Register.xlsx](Attendance%20Register.xlsx) will be ready! 
 
-and the names of the students with low attendance and best attendance will be showed on the output window.
-
 <img src="Screenshots/4.png">
 
 <img src="Screenshots/5.png">
 
+And the names of the students with low attendance and best attendance will be saved to [Most Wanted.txt](Most%20Wanted.txt) 😝!
+
+<img src="Screenshots/6.png">
+
+##
 
 ### Some important things to take care of
 

@@ -1,9 +1,9 @@
-# Online Class Attendance Manager (For Google Meet)
+# Online Class Attendance Automator (For Google Meet)
 
 
 ## What the project does
 
-This project can be used to mark the attendance of the students of a class in a proper **Attendance Register** (a Microsoft Excel Worksheet) in absolutely no time! This project also have options to analyze the students having low attendance (using an Attendance Criteria) and the students with the best attendance.
+This project can be used to save the attendance of the students of a class in a proper **Attendance Register** (a Microsoft Excel Worksheet) in absolutely no time! This project also have options to analyze the students having low attendance (using an Attendance Criteria) and the students with the best attendance.
 
 
 ## Why the project is useful

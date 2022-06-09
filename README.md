@@ -3,12 +3,12 @@
 
 ## What the project does
 
-This project can be used to save the attendance of the students of a class in a proper **Attendance Register** (a Microsoft Excel Worksheet) in absolutely no time! This project also have options to analyze the students having low attendance (using an Attendance Criteria) and the students with the best attendance.
+This project can be used to save the attendance of the students of a class in a proper **Attendance Register** (a Microsoft Excel Worksheet) in absolutely no time! This project also has options to analyze the students having low attendance (using an Attendance Criteria) and the students with the best attendance.
 
 
 ## Why the project is useful
 
-What happens is, for taking attendance in the online classes like on Google Meet, either the teacher have to take it manually every day which waste a lot of time, or the teacher can use some Google Chrome extensions available which integrates with Google Meet and can be used to save the attendance after every class (meet), **but**, again a huge problem arises here, that the extension just saves the names of the meet attendees like a list in a CSV file every day and so if there will be 90 classes in a semester, the teacher will end up having 90 different CSV files 😬, that is exactly not what the teachers want, and so if they need all the attendance in a single Attendance Register, they'll need to mark 90 x 60 (assuming the class have 60 students) = 5400 entries 🤯, yes, a complete waste of time!!, **SO**, you guessed it right, this project will do that work for you in seconds!
+What happens is, for taking attendance in the online classes like on Google Meet, either the teacher has to take it manually every day which waste a lot of time, or the teacher can use some Google Chrome extensions available which integrates with Google Meet and can be used to save the attendance after every class (meet). **But** again, a huge problem arises here, that the extension just saves the names of the meet attendees like a list in a CSV file every day and so if there will be 90 classes in a semester, the teacher will end up having 90 different CSV files 😬, that is exactly not what the teachers want, and so if they need all the attendance in a single Attendance Register, they'll need to mark 90 x 60 (assuming the class have 60 students) = 5400 entries 🤯, yes, a complete waste of time!!, **SO**, you guessed it right, this project will do that work for you in seconds!
 
 
 ## Installing the Dependencies
@@ -72,7 +72,7 @@ And the names of the students with low attendance and best attendance will be sa
 
 ## Future Features
 
-1) Graphical User Interface (GUI) - For making the process even more easy.
+1) Graphical User Interface (GUI) - For making the process even easier.
 
 2) Time Restriction - Attendance of the students who were in the class for at least a particular duration of time (say 90% of the class duration) will only be considered! 🔥
 

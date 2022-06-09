@@ -49,7 +49,7 @@ most_wanted = 'Most Wanted.txt'
 def get_students():
     """Returns names from :var:`studs`."""
     # print(open(studs).read().split('\n'))  #debugging
-    names = list(filter(lambda x: x, sorted(map(lambda x: x.strip().title(), open(studs).read().split('\n')))))  # doesn't matter what's outside, the data will be well formatted after coming inside the program! (titlecased etc.)
+    names = list(filter(lambda x: x, sorted(map(lambda x: x.strip().title(), open(studs).read().split('\n')))))  # doesn't matter what's outside, the data will be well formatted after coming inside the program! (title cased etc.)
     # print(names)  #debugging
     if len(names) != len(set(names)):  # duplicate names check
         from collections import Counter

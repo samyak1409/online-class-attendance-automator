@@ -99,7 +99,7 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
                     exit()
                 break
 
-        # Skipping to names starting:
+        # Skipping to names-starting:
         while True:
             try:
                 if last_line_sub_str in next(data)[0]:
@@ -119,7 +119,7 @@ for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
         roll_no = heading_row + 1
 
         # print(list(data)); exit()  #debugging
-        attendees = list(filter(lambda x: x, sorted(map(lambda x: x[0].strip().title() if x != [] else '', data))))  # doesn't matter what's outside, the data will be formatted well after coming inside the program! (titlecased etc.)
+        attendees = list(filter(lambda x: x, sorted(map(lambda x: x[0].strip().title() if x != [] else '', data))))  # doesn't matter what's outside, the data will be formatted well after coming inside the program! (title cased etc.)
         # print(attendees)  #debugging
         if len(attendees) != len(set(attendees)):  # duplicate names check
             from collections import Counter

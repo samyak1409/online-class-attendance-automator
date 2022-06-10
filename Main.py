@@ -5,32 +5,34 @@ from csv import reader
 from os.path import exists
 from glob import glob
 from os import chdir, getcwd, startfile
-from Attributes import path_to_register, path_to_csv_dir, get_students, date_line_sub_str, get_date, last_line_sub_str, teacher, min_percent, names_heading, include_year, attrs, most_wanted
-from tkinter import Tk, LabelFrame, N, Button
-from tkinter.messagebox import askyesno
-
-
-# ATTRIBUTES:
-
-zoomed = False
-
-
-# WINDOW INITIALIZATION:
-
-window = Tk()
-if zoomed:
-    window.state('zoomed')
-window.title('Attendance Automator')
-
-frame = LabelFrame(window, text='Please enter:', padx=32, pady=32, labelanchor=N, highlightthickness=1)
-frame.pack(expand=True)
+from Attributes import path_to_csv_dir, teacher, min_percent, date_line_sub_str, last_line_sub_str, path_to_register, names_heading, include_year, attrs, most_wanted, get_students, get_date
+from tkinter import Tk, LabelFrame, Button, Label, StringVar, Entry, OptionMenu
+from tkinter.messagebox import askyesno, showerror
+from tkinter.filedialog import askdirectory
 
 
 # FUNCTIONS:
 
-def main_process():
+def input_dir():
+    """Inputs the CSVs' directory."""
+    path = askdirectory(initialdir='.', mustexist=True, title='Please select the CSVs\' directory.')
+    if path:
+        global path_to_csv_dir
+        path_to_csv_dir = path
+        dir_button.configure(text=path_to_csv_dir.rsplit('/', maxsplit=1)[-1])
 
-    global path_to_register
+
+def main_process():
+    """Main Process."""
+
+    global path_to_register, teacher, min_percent
+
+    teacher = teacher_var.get().strip()
+    if not teacher:
+        showerror(title='Teacher\'s Name Unfilled', message='Please enter the teacher\'s name.')
+        return
+    min_percent = int(min_percent_var.get())
+    print(f'\n{path_to_csv_dir}\n{teacher}\n{min_percent}')  # debugging
 
     # CONNECTING TO ATTENDANCE REGISTER:
 
@@ -58,7 +60,7 @@ def main_process():
             path_to_register = f'{copy[:-5]} ({i}).xlsx'
             i += 1
         del i, copy
-        print('Path to register:', path_to_register)
+        print('\nPath to register:', path_to_register)
 
         wb = Workbook()
         wb.save(path_to_register)
@@ -84,17 +86,22 @@ def main_process():
     # MAIN:
 
     def get_reg_name(rn_):
-        """Name in attendance register"""
+        """Returns the name in attendance register for roll number "rn_"."""
         cell_value_ = sheet.cell(row=rn_, column=reg_names_col).value
         return cell_value_ and cell_value_.strip()
 
     cwd = getcwd()  # storing cwd
     chdir(path_to_csv_dir)
 
+    csv_list = glob('*.csv')
+    if len(csv_list) == 0:
+        showerror(title='No CSVs Found', message=f'No CSVs found in "{path_to_csv_dir}", add the CSVs and try again.')
+        return
+
     day = start_column
 
-    for i, csv_file in enumerate(sorted(glob('*.csv')), start=1):
-        print(f'\n{i})', csv_file)  # debugging
+    for i, csv_file in enumerate(sorted(csv_list), start=1):
+        print(f'\n{i})', csv_file)
 
         with open(csv_file, newline='', encoding='utf-8-sig') as file:
             # encoding='utf-8-sig' -> https://stackoverflow.com/questions/34399172/why-does-my-python-code-print-the-extra-characters-%c3%af-when-reading-from-a-tex
@@ -109,17 +116,13 @@ def main_process():
                 except IndexError:  # (empty row)
                     continue
                 except StopIteration:  # reached the end of the csv
-                    print(f'''"date_line_sub_str" didn't match... \n
-                    Please correct it in "{attrs}" and run the program again. \n
-                    EXITING WITHOUT SAVING''')
+                    showerror(title='An Error Occurred', message=f'''"date_line_sub_str" didn't match... Please correct it in "{attrs}" and run the program again. \n\nEXITING WITHOUT SAVING''')
                     exit()
                 # print(cell)  #debugging
 
                 if date_line_sub_str in cell:
                     if str(date) not in cell:
-                        print(f'''Something went wrong, date in CSV filename ("{date}") and inside CSV didn't match... \n
-                        Please make sure it's same (else wrong attendance will be marked) and run the program again. \n
-                        EXITING WITHOUT SAVING''')
+                        showerror(title='Something Went Wrong', message=f'''Date in CSV filename ("{csv_file}") and inside CSV ("{cell}") didn't match... Please make sure it's same (else wrong attendance will be marked) and run the program again. \n\nEXITING WITHOUT SAVING''')
                         exit()
                     break
 
@@ -131,9 +134,7 @@ def main_process():
                 except IndexError:  # (empty row)
                     continue
                 except StopIteration:  # reached the end of the csv
-                    print(f'''"last_line_sub_str" didn't match... \n
-                    Please correct it in "{attrs}" and run the program again. \n
-                    EXITING WITHOUT SAVING''')
+                    showerror(title='An Error Occurred', message=f'''"last_line_sub_str" didn't match... Please correct it in "{attrs}" and run the program again. \n\nEXITING WITHOUT SAVING''')
                     exit()
 
             # MARKING ATTENDANCE:
@@ -238,10 +239,36 @@ def main_process():
     window.destroy()
 
 
-# MAIN:
+# GUI MAIN:
+
+window = Tk()
+window.title('Attendance Automator')
+
+frame = LabelFrame(window, text='Please enter:', padx=32, pady=32)
+frame.grid()
+
+Label(master=frame, text='CSVs\' Directory: ').grid(row=0, column=0)
+
+dir_button = Button(master=frame, text=path_to_csv_dir, command=input_dir)
+dir_button.grid(row=0, column=1)
+
+Label(master=frame, text='Teacher\'s Name: ').grid(row=1, column=0)
+
+teacher_var = StringVar()
+teacher_var.set(teacher)
+teacher_button = Entry(master=frame, textvariable=teacher_var)
+teacher_button.grid(row=1, column=1)
+
+Label(master=frame, text='Minimum Percent: ').grid(row=2, column=0)
+
+min_percent_var = StringVar()
+min_percent_var.set(str(min_percent))
+min_percent_om = OptionMenu(frame, min_percent_var, *range(50, 75+1))
+# min_percent_om.configure(direction='flush')
+min_percent_om.grid(row=2, column=1)
 
 start_button = Button(master=frame, text='Start Process', command=main_process)
-start_button.pack()
+start_button.grid(row=3, columnspan=2)
 
 
 # MAINLOOP:

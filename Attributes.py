@@ -3,9 +3,9 @@
 
 # Must:
 
-teacher = 'Ravi Jain'  # (since teacher will always be present in the meeting)
-
 path_to_csv_dir = 'Attendance CSVs'  # path to the dir containing Google Chrome Extension generated CSV files of attendance
+
+teacher = 'Ravi Jain'  # (since teacher will always be present in the meeting)
 
 min_percent = 70  # minimum percentage criteria
 

@@ -32,11 +32,9 @@ pip install -r requirements.txt
 <img src="Screenshots/2.png">
 
 
-#### 3) If you have attendance data (CSV files) ready, first empty the [Attendance CSVs](Attendance%20CSVs) folder and just copy them all to the same and proceed with step 4.
+#### 3) Empty the [Attendance CSVs](Attendance%20CSVs) folder and copy all your attendance data (CSV files) to the same.
 
-**Else**, we'll be generating sample attendance data! -> 
-
-*This step is only for developers and not teachers, in this step we'll be generating sample attendance data as we don't have the real attendance data.*
+Don't have attendance data? Generate sample data [FOR TESTING]:
 
 Run [Sample Data Generator.py](Sample%20Data%20Generator.py) and enter the number of days of attendance you want to generate.
 
@@ -45,17 +43,23 @@ Run [Sample Data Generator.py](Sample%20Data%20Generator.py) and enter the numbe
 It will generate any number of days of attendance in a few seconds and will save them to [Attendance CSVs](Attendance%20CSVs) folder ready to be processed by the [main](Main.py) program.
 
 
-#### 4) Run [Main.py](Main.py), wait for a few seconds, and BOOM! complete [Attendance Register.xlsx](Attendance%20Register.xlsx) will be ready! 
+#### 4) Run [Main.py](Main.py).
 
 <img src="Screenshots/4.png">
 
+Make any required changes and start the process, wait for a second, and BOOM!
+
 <img src="Screenshots/5.png">
 
-And the names of the students with low attendance and best attendance will be saved to [Most Wanted.txt](Most%20Wanted.txt) 😝!
+Complete [Attendance Register.xlsx](Attendance%20Register.xlsx) will be ready!
 
 <img src="Screenshots/6.png">
 
-##
+And the names of the students with low attendance and best attendance will be saved to [Most Wanted.txt](Most%20Wanted.txt) 😝!
+
+<img src="Screenshots/7.png">
+
+## 
 
 ### Some important things to take care of
 
@@ -72,15 +76,13 @@ And the names of the students with low attendance and best attendance will be sa
 
 ## Future Features
 
-1) Graphical User Interface (GUI) - For making the process even easier.
+1) Time Restriction - Attendance of the students who were in the class for at least a particular duration of time (say 90% of the class duration) will only be considered! 🔥
 
-2) Time Restriction - Attendance of the students who were in the class for at least a particular duration of time (say 90% of the class duration) will only be considered! 🔥
+2) Auto report to Parents - A message (maybe mail) will automatically be sent to the parents of the students with low attendance. (Parents data (mail IDs) will be needed.)
 
-3) Auto report to Parents - A message (maybe mail) will automatically be sent to the parents of the students with low attendance. (Parents data (mail IDs) will be needed.)
+3) Independence from Extension - Making an extension itself will end up giving so many advantages (e.g. no chance of the program breaking because the Extension changed its format a little)
 
-4) Independence from Extension - Making an extension itself will end up giving so many advantages (e.g. no chance of the program breaking because the Extension changed its format a little)
-
-5) More coming...
+4) More coming...
 
 ## 
 

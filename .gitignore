@@ -4,6 +4,7 @@ Attendance CSVs/*.csv
 # Others:
 rough.py
 GroupsDivider.py
+Mail.py
 
 # .pyc:
 __pycache__

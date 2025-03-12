@@ -4,7 +4,8 @@ from openpyxl import Workbook, load_workbook
 from csv import reader
 from os.path import exists
 from glob import glob
-from os import chdir, getcwd, startfile
+from os import chdir, getcwd
+from sys import platform
 from Attributes import path_to_csv_dir, teacher, min_percent, date_line_sub_str, last_line_sub_str, path_to_register, names_heading, include_year, attrs, most_wanted, get_students, get_date
 from tkinter import Tk, LabelFrame, Button, Label, StringVar, Entry, OptionMenu
 from tkinter.messagebox import askyesno, showerror
@@ -12,6 +13,18 @@ from tkinter.filedialog import askdirectory
 
 
 # FUNCTIONS:
+
+def open_file_or_directory(path):
+    if platform == "win32":
+        from os import startfile
+        startfile(path)  # Windows
+    elif platform == "darwin":  # macOS
+        from subprocess import run
+        run(["open", path])
+    else:  # Linux and others
+        from subprocess import run
+        run(["xdg-open", path])
+
 
 def input_dir():
     """Inputs the CSVs' directory."""
@@ -233,8 +246,8 @@ def main_process():
         exit(f'Error Occurred: {e} \nNOTHING HAS BEEN SAVED \nMake sure the \'{path_to_register}\' is not opened in some other program.')
 
     if askyesno(title='SUCCESS!', message=f'Open the files? ("{path_to_register}" & "{most_wanted}")'):
-        startfile(path_to_register)
-        startfile(most_wanted)
+        open_file_or_directory(path_to_register)
+        open_file_or_directory(most_wanted)
 
     window.destroy()
 

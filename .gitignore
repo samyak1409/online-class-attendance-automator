@@ -9,3 +9,6 @@ Marks Total-er.py
 
 # .pyc:
 __pycache__
+
+# MacOS:
+.DS_Store

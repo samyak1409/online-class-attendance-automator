@@ -3,6 +3,7 @@ from csv import reader, writer
 from datetime import timedelta
 from random import sample, randint
 from os import chdir
+from os.path import join
 from glob import iglob
 from Attributes import path_to_csv_dir, date_line_sub_str, last_line_sub_str, teacher, get_students, get_date, path_to_sample_csv_dir
 
@@ -46,7 +47,7 @@ for i in range(1, int(input('\nHow many CSVs? > '))+1):
     new_date += timedelta(days=1)
     # print(new_date)  #debugging
 
-    chdir(f'..\\{path_to_csv_dir}')
+    chdir(join('..', path_to_csv_dir))
     dst_csv = f'{new_date}{remaining_str}'
 
     with open(dst_csv, mode='w', newline='') as file:

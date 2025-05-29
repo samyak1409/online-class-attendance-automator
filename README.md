@@ -14,9 +14,9 @@
 
 This software automatically consolidates Google Meet attendance into a centralized **Attendance Register**—a structured Microsoft Excel worksheet—eliminating the need for manual data entry. It not only records daily attendance in real-time but also provides features like:
 
-* Configurable attendance rules (e.g., minimum join duration)
-* Auto-generated insights on students with low or perfect attendance
-* Bulk test data generation for simulation or testing
+- Configurable attendance rules (e.g., minimum join duration)
+- Auto-generated insights on students with low or perfect attendance
+- Bulk test data generation for simulation or testing
 
 All it takes is one click to generate a semester-long attendance record that would otherwise take hours to compile manually.
 
@@ -30,9 +30,9 @@ For example, with 60 students and 90 classes, a teacher would need to manually p
 
 This tool **solves that problem completely** by:
 
-* Merging all attendance data into a single Excel register
-* Applying attendance criteria automatically
-* Saving **3–6 hours per week** that were previously wasted on manual tracking
+- Merging all attendance data into a single Excel register
+- Applying attendance criteria automatically
+- Saving **3–6 hours per week** that were previously wasted on manual tracking
 
 It’s fast, intelligent, and tailor-made for teachers managing virtual classrooms.
 
